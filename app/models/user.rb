@@ -20,6 +20,9 @@ class User < ApplicationRecord
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
 	#associations
+	has_many :boards
+	has_many :todo_lists, through: :boards
+	has_many :todos, through: :todo_lists
 
 	after_initialize :ensure_session_token
 

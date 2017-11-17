@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115044424) do
+ActiveRecord::Schema.define(version: 20171116035832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "board_title",       null: false
+    t.string   "board_description"
+    t.integer  "user_id",           null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_boards_on_user_id", using: :btree
+  end
+
+  create_table "todo_lists", force: :cascade do |t|
+    t.string   "list_title",       null: false
+    t.string   "list_description"
+    t.integer  "board_id",         null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["board_id"], name: "index_todo_lists_on_board_id", using: :btree
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string   "todo_title",   null: false
+    t.string   "todo_comment"
+    t.integer  "list_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["list_id"], name: "index_todos_on_list_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
