@@ -12,5 +12,8 @@
 
 class Todo < ApplicationRecord
   # associations
-  belongs_to :todoList, class_name: :TodoList, foreign_key: :list_id
+  belongs_to :todolist, 
+    class_name: :TodoList, 
+    foreign_key: :list_id
+  
 end

@@ -15,7 +15,7 @@ class TodoList < ApplicationRecord
 
   # associations
   belongs_to :board
-  has_many :todos, class_name::Todo, foreign_key: :list_id
+  has_many :todos, class_name: :Todo, foreign_key: :list_id
 
 
 end
