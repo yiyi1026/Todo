@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
 	end
 
   def show
-    # user profile page???
+    # user profile page
     @user = User.find(params[:id])
     render :show
   end
