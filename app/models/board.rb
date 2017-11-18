@@ -16,6 +16,9 @@ class Board < ApplicationRecord
 
   # associations
   belongs_to :user
-  has_many :todolists
-  # has_many :todos, through: :todolists
+  has_many :todolists, 
+    class_name: :TodoList, 
+    foreign_key: :board_id
+    
+  has_many :todos, through: :todolists
 end

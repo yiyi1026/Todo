@@ -17,5 +17,8 @@ class TodoList < ApplicationRecord
   belongs_to :board
   has_many :todos, class_name: :Todo, foreign_key: :list_id
 
+  def user
+    board.user
+  end
 
 end
