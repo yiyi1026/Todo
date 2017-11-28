@@ -51,6 +51,10 @@ class User < ApplicationRecord
 		self.session_token
 	end
 
+	def boardsIds
+		self.boards.map{|board|board.id}
+	end
+	
 	private
 
 	def ensure_session_token

@@ -21,4 +21,8 @@ class Board < ApplicationRecord
     foreign_key: :board_id
     
   has_many :todos, through: :todolists
+
+  def todolistsIds
+    self.todolists.map{|list|list.id}
+  end
 end
