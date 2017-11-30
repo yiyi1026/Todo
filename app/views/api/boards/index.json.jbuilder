@@ -1,4 +1,5 @@
-json.array! @boards do |board|
-  json.extract! board, :board_title, :board_description
-
+@boards.each do |board|
+  json.set! board.id do
+    json.partial! 'board', board: board
+  end
 end

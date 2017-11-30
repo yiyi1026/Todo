@@ -1,1 +1,1 @@
-json.partial! "api/todolists/todolist", todolist: @todolist
+json.partial! "todolist", todolist: @todolist

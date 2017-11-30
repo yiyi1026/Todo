@@ -1,4 +1,5 @@
-json.array! @todolists do |todolist|
-  json.extract! todolist, :id, :list_title, :list_description
-
+@todolists.each do |todolist|
+  json.set! todolist.id do
+    json.partial! 'todolist', todolist: todolist
+  end
 end

@@ -1,1 +1,1 @@
-json.extract! todolist, :list_id, :list_title, :list_description
+json.extract! todolist, :board_id, :list_title, :list_description
