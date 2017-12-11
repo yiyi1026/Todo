@@ -21,3 +21,4 @@ npm-debug.log
 
 # Ignore Byebug command history file.
 .byebug_history
+frontend/test.js

@@ -5,29 +5,28 @@ import configureStore from './store/store';
 // Testing Start
 // import * as APIUtil from './util/session_api_util';
 // import { login, logout, signup}  from './util/session_api_util';
-import { login, logout, signup}  from './actions/session_actions';
-import {} from './actions/question_actions';
+// import { login, logout, signup}  from './actions/session_actions';
+// import {} from './actions/question_actions';
 
 // Test Ends
-window.login = login;
-window.logout = logout;
-window.signup = signup;
+// window.login = login;
+// window.logout = logout;
+// window.signup = signup;
+let store;
 document.addEventListener('DOMContentLoaded', () => {
-  let store;
+
   if (window.currentUser) {
   const preloadedState = { session: { currentUser: window.currentUser } };
   store = configureStore(preloadedState);
 } else {
   store = configureStore();
 }
-  // console.log(store);
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // only do this while developing
+  window.store = store;
+  // test ends
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 });
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const root = document.getElementById('root');
-//     ReactDOM.render(<h1>Todos</h1>, root);
-// });
+//window.dispatch = store.dispatch;
+
