@@ -7,15 +7,15 @@ import {
 
 import merge from 'lodash/merge';
 
-const initialState = {
-  session: {
-    currentUser: {},
-    errors: []
-  },
-  boards: {},
-  // todolists:{},
-  todos:{}
-};
+// const initialState = {
+//   session: {
+//     currentUser: {},
+//     errors: []
+//   },
+//   boards: {},
+//   todolists:{},
+//   todos:{}
+// };
 
 // Sample State Shape
 // {
@@ -24,13 +24,11 @@ const initialState = {
   //     id: 1,
   //     title: "wash car",
   //     body: "with soap",
-  //     done: false
   //   },
   //   "2": {
   //     id: 2,
   //     title: "wash dog",
   //     body: "with shampoo",
-  //     done: true
   //   }
 //   },
 //   todolists...
