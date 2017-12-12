@@ -8,6 +8,7 @@ const rootReducer = combineReducers({
   session: sessionReducer,
 
   boards: boardsReducer,
+  // todolists: todolistsReducer,
   todos: todosReducer
   // ,errors: errorsReducer
 });

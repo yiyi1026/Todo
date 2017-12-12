@@ -13,8 +13,28 @@ const initialState = {
     errors: []
   },
   boards: {},
+  // todolists:{},
   todos:{}
 };
+
+// Sample State Shape
+// {
+//   todos:   {
+  //   "1": {
+  //     id: 1,
+  //     title: "wash car",
+  //     body: "with soap",
+  //     done: false
+  //   },
+  //   "2": {
+  //     id: 2,
+  //     title: "wash dog",
+  //     body: "with shampoo",
+  //     done: true
+  //   }
+//   },
+//   todolists...
+// };
 
 const todosReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -23,7 +43,7 @@ const todosReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_TODOS:
       nextState = {};
-      nextState = action.todos.forEach(
+      action.todos.forEach(
         todo => nextState[todo.id] = todo
       );
       return nextState;

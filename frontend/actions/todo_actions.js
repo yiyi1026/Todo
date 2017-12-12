@@ -3,22 +3,22 @@ export const RECEIVE_TODO = 'RECEIVE_TODO'
 export const REMOVE_TODO = 'REMOVE_TODO'
 export const TODO_ERROR = 'TODO_ERROR'
 
-export const receive_todos = todos => {
+export const receiveTodos = todos => ({
   type: RECEIVE_TODOS,
   todos
-};
+});
 
-export const receive_todo = todo => {
+export const receiveTodo = todo => ({
   type: RECEIVE_TODO,
   todo
-};
+});
 
-export const remove_todo = todo => {
+export const removeTodo = todo => ({
   type: REMOVE_TODO,
   todo
-};
+});
 
-export const todo_error = todo => {
+export const todo_error = todo => ({
   type: TODO_ERROR,
   todo
-};
+});
