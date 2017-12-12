@@ -1,13 +1,10 @@
 import React from 'react';
 
-const App = () => {
-  return (
+const App = () => (
     <div >
       <h1>todos</h1>
      
     </div>
-  );
-
-};
+);
 
 export default App;

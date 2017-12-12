@@ -32,12 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 } else {
   store = configureStore();
 }
-// only do this while developing
-window.store = store;
+// dev tools
+// test starts
+window.getState = store.getState;
 window.dispatch = store.dispatch;
-window.receiveTodos = receiveTodos;
-window.receiveTodo = receiveTodo;
-window.removeTodo = removeTodo;
+// window.receiveTodos = receiveTodos;
+// window.receiveTodo = receiveTodo;
+// window.removeTodo = removeTodo;
 // test ends
 
 const root = document.getElementById('root');
