@@ -1,8 +1,10 @@
 import React from 'react';
+import GreetingContainer from './greeting/greeting_container';
 
 const App = () => (
     <div >
-      <h1>todos</h1>
+      <h1>Todos</h1>
+      <GreetingContainer />
      
     </div>
 );
