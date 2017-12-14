@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // testing starts
 window.getState = store.getState;
 window.dispatch = store.dispatch;
-// window.receiveTodos = receiveTodos;
-// window.receiveTodo = receiveTodo;
-// window.removeTodo = removeTodo;
+window.receiveTodos = receiveTodos;
+window.receiveTodo = receiveTodo;
+window.removeTodo = removeTodo;
 // testing ends
 
 const root = document.getElementById('root');
