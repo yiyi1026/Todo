@@ -14,20 +14,19 @@ class SessionForm extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      // console.log(currentUser);
-      // dispatch(currentUser);
-      // this.setState=({this.props.currentUser});
       this.props.history.push('/');
     }
   }
 
   update(field) {
-    return e => this.setState({[field]: e.currentTarget.value});
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = this.state;
+    const user = Object.assign({},this.state);
     if (this.props.formType === 'login') {
       this.props.processForm({user});
     }
@@ -35,7 +34,6 @@ class SessionForm extends React.Component {
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    // const user = this.state;
     let user = {
       email: "guest1@guest.com",
       password: 'guest1'
@@ -44,50 +42,62 @@ class SessionForm extends React.Component {
       this.props.processForm({user});
     }
   }
-  // navLink() {
-  //   if (this.props.formType === 'login') {
-  //     return <Link to="/signup">sign up </Link>;
-  //   } else {
-  //     return <Link to="/login">log in </Link>;
-  //   }
-  // }
 
   renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    let errs
+    if (this.props.errors){  
+      errs = (
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }else{
+      errs = (<ul></ul>)
+    }
+    return errs;
   }
 
   render() {
     let login_html = (
-      <div className='login'>
-        <div className='col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0 col-lg-3'>
-          <form onSubmit={this.handleSubmit} className="login-form-box row">
+      <div className='login-form-container'>
+        <div >
+          <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
-            <div className='form-group '>
+            <div className='login-form'>
               <h4 >
                 <b>Sign In</b>
               </h4>
 
-              <input id='email' className='form-control' placeholder='Email' value={this.state.email} onChange={this.update('email')}/>
+              <input type="text" 
+              className='login-email' 
+              value={this.state.email} 
+              onChange={this.update('email')}
+              placeholder='Email'/>
             </div>
 
-            <div className='form-group'>
-              <span ></span>
-              <input id='password' type='password' className='form-control' value={this.state.password} onChange={this.update('password')} placeholder='Password'/>
+            <div className='login-form'>
+              <input type='password'
+               className='login-password' 
+               value={this.state.password} 
+               onChange={this.update('password')} placeholder='Password'/>
 
             </div>
-            <input type="submit" value="Sign In" className='btn wonderful-button pull-right'></input>
+            <input type="submit" 
+            value="Sign In" 
+            className='login-submit'
+            >
+            </input>
 
           </form>
-          <form onSubmit={this.handleDemoSubmit} className="login-form-box row demo-login ">
-            <input type="submit" value="Demo Sign In" className='btn wonderful-button pull-right'></input>
+          <form onSubmit={this.handleDemoSubmit}      className="login-demo">
+            <input type="submit" 
+            value="Demo Sign In" 
+            className='login-submit'>
+            </input>
           </form>
         </div>
       </div>
